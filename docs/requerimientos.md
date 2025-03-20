@@ -54,5 +54,3 @@ el proyecto
 - Construir swagger con la documentación de los endpoints
     ### Deseable
 - Implementar migraciones de base de datos
-
-

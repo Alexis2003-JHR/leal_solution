@@ -53,7 +53,7 @@ type Transaction struct {
 	Branch    Branch    `gorm:"foreignKey:BranchID"`
 	Amount    float64   `gorm:"not null"`
 	CreatedAt time.Time `gorm:"autoCreateTime"`
-	Earnings  *Earnings `gorm:"foreignKey:TransactionID"` // Se usa puntero para evitar referencia circular
+	Earnings  *Earnings `gorm:"foreignKey:TransactionID"`
 }
 
 // Campaña
