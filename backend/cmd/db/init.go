@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"os"
 
+	ormModels "leal/internal/core/domain/db"
+
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -20,6 +22,18 @@ func Init() (*gorm.DB, error) {
 	if err != nil {
 		return nil, err
 	}
+
+	db.AutoMigrate(
+		&ormModels.User{},
+		&ormModels.Business{},
+		&ormModels.Branch{},
+		&ormModels.ConversionFactor{},
+		&ormModels.Transaction{},
+		&ormModels.Campaign{},
+		&ormModels.Earnings{},
+		&ormModels.Reward{},
+		&ormModels.Redemption{},
+	)
 
 	return db, nil
 }
