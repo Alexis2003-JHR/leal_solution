@@ -29,6 +29,6 @@ func InitRouter(r *gin.Engine, handler *handlers.Handler) {
 
 		v1.POST("/redemptions", handler.CreateUser)
 		v1.POST("/business", handler.CreateBusiness)
-		v1.POST("/branches", handler.CreateUser)
+		v1.POST("/branches", handler.CreateBranch)
 	}
 }

@@ -2,6 +2,8 @@ package db
 
 import (
 	"time"
+
+	"gorm.io/gorm"
 )
 
 // Usuario
@@ -29,12 +31,17 @@ type Business struct {
 // Sucursal (Branch)
 type Branch struct {
 	ID            uint          `gorm:"primaryKey"`
-	BusinessTaxID string        `gorm:"not null"`
+	BusinessTaxID int           `gorm:"not null;index"`
 	Name          string        `gorm:"not null"`
 	CreatedAt     time.Time     `gorm:"autoCreateTime"`
 	Business      Business      `gorm:"foreignKey:BusinessTaxID;references:TaxID"`
 	Campaigns     []Campaign    `gorm:"foreignKey:BranchID"`
 	Transactions  []Transaction `gorm:"foreignKey:BranchID"`
+}
+
+func (Branch) BeforeCreate(tx *gorm.DB) (err error) {
+	tx.Exec("CREATE UNIQUE INDEX IF NOT EXISTS idx_branch_name_business ON branches (business_tax_id, name)")
+	return nil
 }
 
 // Factor de Conversión (ConversionFactor)

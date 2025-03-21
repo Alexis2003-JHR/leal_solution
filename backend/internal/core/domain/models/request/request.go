@@ -20,3 +20,8 @@ type CreateBusiness struct {
 	Telefono    int    `json:"telefono"`
 	Correo      string `json:"correo"`
 }
+
+type CreateBranch struct {
+	NITEmpresa     int    `json:"nit_empresa"`
+	NombreSucursal string `json:"nombre_sucursal"`
+}

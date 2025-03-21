@@ -8,3 +8,6 @@
 2025/03/20 22:36:04 {"level": "error", "type": "DUPLICATE_KEY", "message": "The entity already exists", "log_message": "duplicate key: business with the same name, tax ID, or email already exists"}
 2025/03/20 22:36:09 {"level": "error", "type": "DUPLICATE_KEY", "message": "The entity already exists", "log_message": "duplicate key: business with the same name, tax ID, or email already exists"}
 2025/03/20 22:36:10 {"level": "error", "type": "DUPLICATE_KEY", "message": "The entity already exists", "log_message": "duplicate key: business with the same name, tax ID, or email already exists"}
+2025/03/20 22:55:45 {"level": "error", "type": "INTERNAL_SERVER_ERROR", "message": "Something unexpected has happened", "log_message": "internal server error: error inserting the branch"}
+2025/03/20 23:11:10 {"level": "error", "type": "DUPLICATE_KEY", "message": "The entity already exists", "log_message": "duplicate key: branch Buena Aventura - Los Andes already exists"}
+2025/03/20 23:11:13 {"level": "error", "type": "DUPLICATE_KEY", "message": "The entity already exists", "log_message": "duplicate key: branch Buena Aventura - Los Andes already exists"}
