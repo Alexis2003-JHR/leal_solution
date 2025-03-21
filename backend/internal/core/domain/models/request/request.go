@@ -41,3 +41,10 @@ type ProcessTransaction struct {
 	BranchID int        `json:"id_sucursal"`
 	Valor    float64    `json:"valor"`
 }
+
+type CreateReward struct {
+	Name           string `json:"nombre"`
+	Description    string `json:"descripcion"`
+	PointsRequired int    `json:"puntos_requeridos"`
+	BusinessTaxID  int    `json:"nit_empresa"`
+}

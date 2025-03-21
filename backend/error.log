@@ -1811,3 +1811,7 @@
 2025/03/21 15:43:30 [Worker 3] Procesando transacción: {User:{Name: DocumentNumber:1007105219 Email:} BranchID:10 Valor:5000}
 2025/03/21 15:46:35 [Worker 1] Procesando transacción: {User:{Name: DocumentNumber:1007105219 Email:} BranchID:10 Valor:5000}
 2025/03/21 15:47:59 [Worker 0] Procesando transacción: {User:{Name: DocumentNumber:1007105219 Email:} BranchID:10 Valor:5000}
+2025/03/21 16:11:27 [Worker 3] Procesando transacción: {User:{Name: DocumentNumber:0 Email:} BranchID:0 Valor:0}
+2025/03/21 16:11:27 Error en id 3: record not found
+2025/03/21 16:12:02 [Worker 0] Procesando transacción: {User:{Name: DocumentNumber:0 Email:} BranchID:0 Valor:0}
+2025/03/21 16:12:02 Error en id 0: record not found
