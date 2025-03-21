@@ -21,6 +21,9 @@ func ParseError(err error) *custom_errors.LogError {
 	case errors.Is(err, custom_errors.ErrNotFound):
 		customErr = custom_errors.New(custom_errors.ErrNotFoundType, "Entity not found", http.StatusNotFound, err.Error())
 
+	case errors.Is(err, custom_errors.ErrSavingError):
+		customErr = custom_errors.New(custom_errors.ErrSaveType, err.Error(), http.StatusBadRequest, err.Error())
+
 	default:
 		customErr = custom_errors.New(custom_errors.ErrInternalServerErrorType, "Something unexpected has happened", http.StatusInternalServerError, err.Error())
 	}

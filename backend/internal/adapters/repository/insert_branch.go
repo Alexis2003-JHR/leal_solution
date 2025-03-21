@@ -17,6 +17,9 @@ func (r *repository) InsertBranch(ctx context.Context, branch db.Branch) error {
 
 	if err := r.db.WithContext(ctx).Create(&branch).Error; err != nil {
 		var pgErr *pgconn.PgError
+		if errors.As(err, &pgErr) && pgErr.Code == "23503" {
+			return fmt.Errorf("%w: el business_tax_id %d no existe", custom_errors.ErrSavingError, branch.BusinessTaxID)
+		}
 		if errors.As(err, &pgErr) && pgErr.Code == "23505" {
 			return fmt.Errorf("%w: branch %s already exists", custom_errors.ErrDuplicatedKey, branch.Name)
 		}

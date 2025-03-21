@@ -21,7 +21,7 @@ const (
 var ErrBadRequest = errors.New("the request is invalid or malformed")
 var ErrNotFound = errors.New("error data not found")
 var ErrUnauthorized = errors.New("the user is not authorized")
-var ErrSavingError = errors.New("error saving refresh token")
+var ErrSavingError = errors.New("error saving the entity")
 var ErrInternalServerError = errors.New("internal server error")
 var ErrDuplicatedKey = errors.New("duplicate key")
 

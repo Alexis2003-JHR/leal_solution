@@ -13,3 +13,9 @@
 2025/03/20 23:11:13 {"level": "error", "type": "DUPLICATE_KEY", "message": "The entity already exists", "log_message": "duplicate key: branch Buena Aventura - Los Andes already exists"}
 2025/03/20 23:26:33 {"level": "error", "type": "DUPLICATE_KEY", "message": "The entity already exists", "log_message": "duplicate key: branch Buena Aventura - Los Andes already exists"}
 2025/03/20 23:55:06 {"level": "error", "type": "NOT_FOUND", "message": "Entity not found", "log_message": "error data not found: no se encontraron sucursales para el tax_id: 1234535843"}
+2025/03/21 07:32:01 {"level": "error", "type": "DUPLICATE_KEY", "message": "The entity already exists", "log_message": "duplicate key: email heyderrojas2003@gmail.com already exists"}
+2025/03/21 07:35:34 {"level": "error", "type": "INTERNAL_SERVER_ERROR", "message": "Something unexpected has happened", "log_message": "internal server error: error inserting the branch"}
+2025/03/21 07:37:57 {"level": "error", "type": "DUPLICATE_KEY", "message": "The entity already exists", "log_message": "duplicate key: el business_tax_id 114433225 no existe"}
+2025/03/21 07:39:59 {"level": "error", "type": "DUPLICATE_KEY", "message": "duplicate key: el business_tax_id 114433225 no existe", "log_message": "duplicate key: el business_tax_id 114433225 no existe"}
+2025/03/21 07:44:04 {"level": "error", "type": "SAVE_ERROR", "message": "error saving refresh token: el business_tax_id 114433225 no existe", "log_message": "error saving refresh token: el business_tax_id 114433225 no existe"}
+2025/03/21 07:44:38 {"level": "error", "type": "SAVE_ERROR", "message": "error saving the entity: el business_tax_id 114433225 no existe", "log_message": "error saving the entity: el business_tax_id 114433225 no existe"}
