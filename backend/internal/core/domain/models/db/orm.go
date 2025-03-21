@@ -8,12 +8,13 @@ import (
 
 // Usuario
 type User struct {
-	ID           uint          `gorm:"primaryKey"`
-	Name         string        `gorm:"not null"`
-	Email        string        `gorm:"unique;not null"`
-	CreatedAt    time.Time     `gorm:"autoCreateTime"`
-	Transactions []Transaction `gorm:"foreignKey:UserID"`
-	Redemptions  []Redemption  `gorm:"foreignKey:UserID"`
+	ID             uint          `gorm:"primaryKey"`
+	Name           string        `gorm:"not null"`
+	DocumentNumber int           `gorm:"not null;index"`
+	Email          string        `gorm:"unique;not null"`
+	CreatedAt      time.Time     `gorm:"autoCreateTime"`
+	Transactions   []Transaction `gorm:"foreignKey:UserID"`
+	Redemptions    []Redemption  `gorm:"foreignKey:UserID"`
 }
 
 // Comercio (Business)

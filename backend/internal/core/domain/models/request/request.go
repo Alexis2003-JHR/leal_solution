@@ -1,8 +1,9 @@
 package request
 
 type CreateUser struct {
-	Name  string `json:"nombre"`
-	Email string `json:"correo"`
+	Name           string `json:"nombre"`
+	DocumentNumber int    `json:"numero_documento"`
+	Email          string `json:"correo"`
 }
 
 type CreateCampaign struct {
@@ -33,4 +34,10 @@ type ConversionFactor struct {
 	MinAmount           float64 `json:"valor_minimo"`
 	PointsPerCurrency   float64 `json:"puntos_por_unidad"`
 	CashbackPerCurrency float64 `json:"cashback_por_unidad"`
+}
+
+type ProcessTransaction struct {
+	User     CreateUser `json:"usuario"`
+	BranchID int        `json:"id_sucursal"`
+	Valor    float64    `json:"valor"`
 }

@@ -13,4 +13,5 @@ type Repository interface {
 	InsertUser(ctx context.Context, user db.User) error
 	GetBranches(ctx context.Context, taxID int) ([]db.Branch, error)
 	GetCampaigns(ctx context.Context, taxID int) ([]db.Campaign, error)
+	FindBranch(ctx context.Context, branchID int) (*db.Branch, error)
 }
