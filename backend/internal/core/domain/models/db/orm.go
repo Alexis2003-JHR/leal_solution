@@ -14,40 +14,39 @@ type User struct {
 	Redemptions  []Redemption  `gorm:"foreignKey:UserID"`
 }
 
-// Comercio
+// Comercio (Business)
 type Business struct {
-	ID                uint               `gorm:"primaryKey"`
+	TaxID             int                `gorm:"primaryKey;not null"`
 	Name              string             `gorm:"unique;not null"`
-	TaxID             int                `gorm:"unique;not null"`
 	Phone             int                `gorm:"not null"`
 	Email             string             `gorm:"unique;not null"`
 	CreatedAt         time.Time          `gorm:"autoCreateTime"`
-	Branches          []Branch           `gorm:"foreignKey:BusinessID"`
-	ConversionFactors []ConversionFactor `gorm:"foreignKey:BusinessID"`
-	Rewards           []Reward           `gorm:"foreignKey:BusinessID"`
+	Branches          []Branch           `gorm:"foreignKey:BusinessTaxID;references:TaxID"`
+	ConversionFactors []ConversionFactor `gorm:"foreignKey:BusinessTaxID;references:TaxID"`
+	Rewards           []Reward           `gorm:"foreignKey:BusinessTaxID;references:TaxID"`
 }
 
-// Sucursal
+// Sucursal (Branch)
 type Branch struct {
-	ID           uint          `gorm:"primaryKey"`
-	BusinessID   uint          `gorm:"not null"`
-	Name         string        `gorm:"not null"`
-	CreatedAt    time.Time     `gorm:"autoCreateTime"`
-	Business     Business      `gorm:"foreignKey:BusinessID"`
-	Campaigns    []Campaign    `gorm:"foreignKey:BranchID"`
-	Transactions []Transaction `gorm:"foreignKey:BranchID"`
+	ID            uint          `gorm:"primaryKey"`
+	BusinessTaxID string        `gorm:"not null"`
+	Name          string        `gorm:"not null"`
+	CreatedAt     time.Time     `gorm:"autoCreateTime"`
+	Business      Business      `gorm:"foreignKey:BusinessTaxID;references:TaxID"`
+	Campaigns     []Campaign    `gorm:"foreignKey:BranchID"`
+	Transactions  []Transaction `gorm:"foreignKey:BranchID"`
 }
 
-// Factor de Conversión
+// Factor de Conversión (ConversionFactor)
 type ConversionFactor struct {
 	ID                  uint     `gorm:"primaryKey"`
-	BusinessID          uint     `gorm:"not null"`
-	Business            Business `gorm:"foreignKey:BusinessID"`
+	BusinessTaxID       string   `gorm:"not null"`
+	Business            Business `gorm:"foreignKey:BusinessTaxID;references:TaxID"`
 	PointsPerCurrency   float64  `gorm:"not null"`
 	CashbackPerCurrency float64  `gorm:"not null"`
 }
 
-// Compra
+// Compra (Transaction)
 type Transaction struct {
 	ID        uint      `gorm:"primaryKey"`
 	UserID    uint      `gorm:"not null"`
@@ -59,7 +58,7 @@ type Transaction struct {
 	Earnings  *Earnings `gorm:"foreignKey:TransactionID"`
 }
 
-// Campaña
+// Campaña (Campaign)
 type Campaign struct {
 	ID                 uint      `gorm:"primaryKey"`
 	BranchID           uint      `gorm:"not null"`
@@ -71,7 +70,7 @@ type Campaign struct {
 	MinPurchaseAmount  float64   `gorm:"default:0"`
 }
 
-// Acumulación de Puntos/Cashback
+// Acumulación de Puntos/Cashback (Earnings)
 type Earnings struct {
 	ID             uint    `gorm:"primaryKey"`
 	TransactionID  uint    `gorm:"not null"`
@@ -79,24 +78,24 @@ type Earnings struct {
 	CashbackEarned float64 `gorm:"default:0"`
 }
 
-// Recompensa
+// Recompensa (Reward)
 type Reward struct {
 	ID             uint     `gorm:"primaryKey"`
-	BusinessID     uint     `gorm:"not null"`
-	Business       Business `gorm:"foreignKey:BusinessID"`
+	BusinessTaxID  string   `gorm:"not null"`
+	Business       Business `gorm:"foreignKey:BusinessTaxID;references:TaxID"`
 	PointsRequired int      `gorm:"not null"`
 	Description    string   `gorm:"not null"`
 }
 
-// Redención de puntos/cashback
+// Redención de puntos/cashback (Redemption)
 type Redemption struct {
-	ID          uint      `gorm:"primaryKey"`
-	UserID      uint      `gorm:"not null"`
-	User        User      `gorm:"foreignKey:UserID"`
-	BusinessID  uint      `gorm:"not null"`
-	Business    Business  `gorm:"foreignKey:BusinessID"`
-	RewardID    uint      `gorm:"not null"`
-	Reward      Reward    `gorm:"foreignKey:RewardID"`
-	PointsSpent int       `gorm:"not null"`
-	CreatedAt   time.Time `gorm:"autoCreateTime"`
+	ID            uint      `gorm:"primaryKey"`
+	UserID        uint      `gorm:"not null"`
+	User          User      `gorm:"foreignKey:UserID"`
+	BusinessTaxID string    `gorm:"not null"`
+	Business      Business  `gorm:"foreignKey:BusinessTaxID;references:TaxID"`
+	RewardID      uint      `gorm:"not null"`
+	Reward        Reward    `gorm:"foreignKey:RewardID"`
+	PointsSpent   int       `gorm:"not null"`
+	CreatedAt     time.Time `gorm:"autoCreateTime"`
 }
