@@ -14,4 +14,5 @@ type Service interface {
 	CreateBranch(ctx context.Context, request request.CreateBranch) error
 	ObtainBranches(ctx context.Context, taxID int) ([]models.Branch, error)
 	ObtainCampaign(ctx context.Context, taxID int) ([]models.Campaign, error)
+	RedeemPoints(ctx context.Context, request request.RedeemPoints) (int, error)
 }

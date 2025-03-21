@@ -48,3 +48,9 @@ type CreateReward struct {
 	PointsRequired int    `json:"puntos_requeridos"`
 	BusinessTaxID  int    `json:"nit_empresa"`
 }
+
+type RedeemPoints struct {
+	User          CreateUser `json:"usuario"`
+	BusinessTaxID int        `json:"nit_empresa"`
+	RewardID      int        `json:"id_premio"`
+}

@@ -107,7 +107,7 @@ type Redemption struct {
 	ID                 uint      `gorm:"primaryKey"`
 	UserDocumentNumber int       `gorm:"not null"`
 	User               User      `gorm:"foreignKey:UserDocumentNumber;references:DocumentNumber"`
-	BusinessTaxID      string    `gorm:"not null"`
+	BusinessTaxID      int       `gorm:"not null"`
 	Business           Business  `gorm:"foreignKey:BusinessTaxID;references:TaxID"`
 	RewardID           uint      `gorm:"not null"`
 	Reward             Reward    `gorm:"foreignKey:RewardID"`

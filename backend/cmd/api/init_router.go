@@ -27,14 +27,14 @@ func InitRouter(r *gin.Engine, handler *handlers.Handler, txHandler *handlers.Tr
 			branches.GET("/", handler.ObtainBranches)
 		}
 
-		rewards := v1.Group("/rewards")
+		redemptions := v1.Group("/redemptions")
 		{
-			rewards.POST("/", handler.CreateReward)
-			rewards.GET("/", handler.ObtainBranches)
+			redemptions.POST("/points", handler.RedeemPoints)
+			redemptions.POST("/cashback", handler.CreateBranch)
 		}
 
 		v1.POST("/transactions", txHandler.ProcessTransaction)
-		v1.POST("/redemptions", handler.CreateUser)
+		v1.POST("/rewards", handler.CreateReward)
 		v1.POST("/business", handler.CreateBusiness)
 	}
 }

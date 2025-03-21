@@ -1815,3 +1815,4 @@
 2025/03/21 16:11:27 Error en id 3: record not found
 2025/03/21 16:12:02 [Worker 0] Procesando transacción: {User:{Name: DocumentNumber:0 Email:} BranchID:0 Valor:0}
 2025/03/21 16:12:02 Error en id 0: record not found
+2025/03/21 16:58:36 {"level": "error", "type": "INTERNAL_SERVER_ERROR", "message": "Something unexpected has happened", "log_message": "puntos insuficientes para reclamar el premio"}
