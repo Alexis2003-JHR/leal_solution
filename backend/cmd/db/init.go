@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	ormModels "leal/internal/core/domain/db"
+	ormModels "leal/internal/core/domain/models/db"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"

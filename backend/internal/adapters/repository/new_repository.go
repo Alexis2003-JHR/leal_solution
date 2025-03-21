@@ -2,7 +2,7 @@ package repository
 
 import (
 	"context"
-	"leal/internal/core/domain/db"
+	"leal/internal/core/domain/models/db"
 
 	"gorm.io/gorm"
 )

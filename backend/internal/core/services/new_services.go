@@ -2,12 +2,12 @@ package services
 
 import (
 	"context"
-	"leal/internal/core/domain"
-	"leal/internal/repository"
+	"leal/internal/adapters/repository"
+	"leal/internal/core/domain/models"
 )
 
 type Service interface {
-	AgregarLeal(ctx context.Context, request domain.RequestProof) (int, error)
+	CrearUsuario(ctx context.Context, request models.RequestProof) (int, error)
 }
 
 type service struct {

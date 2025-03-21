@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 	"leal/internal/core/domain/custom_errors"
-	"leal/internal/core/domain/db"
+	"leal/internal/core/domain/models/db"
 )
 
 func (r *repository) InsertLeal(ctx context.Context, leal db.Leal) error {

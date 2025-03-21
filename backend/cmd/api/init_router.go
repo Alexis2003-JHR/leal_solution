@@ -1,7 +1,7 @@
 package api
 
 import (
-	"leal/internal/core/handlers"
+	"leal/internal/adapters/handlers"
 
 	"github.com/gin-gonic/gin"
 )

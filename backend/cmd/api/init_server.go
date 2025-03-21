@@ -4,10 +4,10 @@ import (
 	"context"
 	"fmt"
 	"leal/cmd/db"
-	"leal/internal/core/handlers"
-	"leal/internal/core/middleware"
+	"leal/internal/adapters/handlers"
+	"leal/internal/adapters/middleware"
+	"leal/internal/adapters/repository"
 	"leal/internal/core/services"
-	"leal/internal/repository"
 	"log"
 
 	"github.com/gin-gonic/gin"
