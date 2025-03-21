@@ -24,7 +24,7 @@ func (r *repository) InsertCampaign(ctx context.Context, campaign db.Campaign) e
 	}
 
 	if !errors.Is(err, gorm.ErrRecordNotFound) {
-		return fmt.Errorf("error al validar la existencia de campañas: %w", err)
+		return fmt.Errorf("%w: error al validar la existencia de campañas: %w", custom_errors.ErrInternalServerError, err)
 	}
 
 	if err := r.db.WithContext(ctx).Create(&campaign).Error; err != nil {

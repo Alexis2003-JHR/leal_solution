@@ -12,4 +12,5 @@ type Service interface {
 	CreateBusiness(ctx context.Context, request request.CreateBusiness) error
 	CreateBranch(ctx context.Context, request request.CreateBranch) error
 	ObtainBranches(ctx context.Context, taxID int) ([]models.Branch, error)
+	ObtainCampaign(ctx context.Context, taxID int) ([]models.Campaign, error)
 }

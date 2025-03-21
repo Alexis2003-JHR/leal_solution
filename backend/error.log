@@ -22,3 +22,6 @@
 2025/03/21 09:17:11 {"level": "error", "type": "DUPLICATE_KEY", "message": "The entity already exists", "log_message": "duplicate key: business with the same name, tax ID, or email already exists"}
 2025/03/21 09:33:14 {"level": "error", "type": "DUPLICATE_KEY", "message": "The entity already exists", "log_message": "duplicate key: branch Barranca La Vieja already exists"}
 2025/03/21 10:04:01 {"level": "error", "type": "DUPLICATE_KEY", "message": "The entity already exists", "log_message": "duplicate key: ya existe una campaña en este rango de fechas para la sucursal 8 del negocio 1144332255"}
+2025/03/21 10:19:47 {"level": "error", "type": "INTERNAL_SERVER_ERROR", "message": "Something unexpected has happened", "log_message": "EOF"}
+2025/03/21 10:23:54 {"level": "error", "type": "INTERNAL_SERVER_ERROR", "message": "Something unexpected has happened", "log_message": "EOF"}
+2025/03/21 10:24:32 {"level": "error", "type": "INTERNAL_SERVER_ERROR", "message": "Something unexpected has happened", "log_message": "EOF"}

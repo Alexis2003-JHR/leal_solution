@@ -84,7 +84,7 @@ Leal es una plataforma de fidelización que permite a los usuarios ganar **punto
 - `GET /campaigns/{commerce_id}` → Consultar campañas activas para un comercio
 
 ### **Comercios y Sucursales**
-- `POST /business` → Crear un nuevo comercio
+- `POST /business` → Crear un nuevo comercio con valores de conversion
 - `POST /branches` → Crear una sucursal para un comercio
 - `GET /branches/{business_id}` → Consultar sucursales de un comercio
 
