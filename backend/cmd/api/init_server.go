@@ -34,7 +34,7 @@ func InitServer(r *gin.Engine) {
 	r.Use(middleware.ErrorHandler())
 
 	repository := repository.NewPostgrestRepository(db)
-	transactionService := services.NewTransactionService(repository, 20)
+	transactionService := services.NewTransactionService(repository, 50)
 	txHandler := handlers.NewTransactionHandler(transactionService)
 	services := services.NewService(repository)
 	handler := handlers.NewHandler(services)

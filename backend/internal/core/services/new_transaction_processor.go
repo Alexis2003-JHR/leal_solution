@@ -36,7 +36,7 @@ func (tp *TransactionService) worker(id int) {
 		log.Printf("[Worker %d] Procesando transacción: %+v\n", id, tx)
 		err := tp.ProcessTransaction(tx)
 		if err != nil {
-			log.Printf("Error en id %d: %w\n", id, err)
+			log.Printf("Error en id %d: %v\n", id, err)
 		}
 	}
 }

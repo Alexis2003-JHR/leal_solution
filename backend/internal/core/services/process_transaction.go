@@ -6,6 +6,7 @@ import (
 	"leal/internal/core/domain/models/db"
 	"leal/internal/core/domain/models/request"
 	"leal/internal/utils"
+	"math"
 	"time"
 )
 
@@ -35,7 +36,7 @@ func (tp *TransactionService) ProcessTransaction(request request.ProcessTransact
 	}
 
 	earnings := &db.Earnings{
-		PointsEarned:   utils.RoundToTwoDecimals(points),
+		PointsEarned:   points,
 		CashbackEarned: utils.RoundToTwoDecimals(cashback),
 	}
 
@@ -46,7 +47,7 @@ func (tp *TransactionService) ProcessTransaction(request request.ProcessTransact
 	return nil
 }
 
-func (s *TransactionService) calculateEarnings(amount float64, factor *db.ConversionFactor, campaign *db.Campaign, hasCampaign bool) (float64, float64) {
+func (s *TransactionService) calculateEarnings(amount float64, factor *db.ConversionFactor, campaign *db.Campaign, hasCampaign bool) (int, float64) {
 	points := amount * factor.PointsPerCurrency
 	cashback := amount * factor.CashbackPerCurrency
 
@@ -55,5 +56,5 @@ func (s *TransactionService) calculateEarnings(amount float64, factor *db.Conver
 		cashback *= campaign.CashbackMultiplier
 	}
 
-	return points, cashback
+	return int(math.Round(points)), cashback
 }

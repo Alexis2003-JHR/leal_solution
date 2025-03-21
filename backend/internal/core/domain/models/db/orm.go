@@ -87,7 +87,7 @@ type Campaign struct {
 type Earnings struct {
 	ID             uint    `gorm:"primaryKey"`
 	TransactionID  uint    `gorm:"not null"`
-	PointsEarned   float64 `gorm:"default:0"`
+	PointsEarned   int     `gorm:"not null"`
 	CashbackEarned float64 `gorm:"default:0"`
 }
 
