@@ -17,7 +17,10 @@ type User struct {
 // Comercio
 type Business struct {
 	ID                uint               `gorm:"primaryKey"`
-	Name              string             `gorm:"not null"`
+	Name              string             `gorm:"unique;not null"`
+	TaxID             int                `gorm:"unique;not null"`
+	Phone             int                `gorm:"not null"`
+	Email             string             `gorm:"unique;not null"`
 	CreatedAt         time.Time          `gorm:"autoCreateTime"`
 	Branches          []Branch           `gorm:"foreignKey:BusinessID"`
 	ConversionFactors []ConversionFactor `gorm:"foreignKey:BusinessID"`

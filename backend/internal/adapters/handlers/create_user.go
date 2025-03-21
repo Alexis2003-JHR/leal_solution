@@ -8,7 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func (h *Handler) CrearUsuario(c *gin.Context) {
+func (h *Handler) CreateUser(c *gin.Context) {
 	ctx := utils.GetCtxByGin(c)
 	var requestData request.CreateUser
 	if err := c.ShouldBindJSON(&requestData); err != nil {
@@ -17,7 +17,7 @@ func (h *Handler) CrearUsuario(c *gin.Context) {
 		return
 	}
 
-	err := h.Service.CrearUsuario(ctx, requestData)
+	err := h.Service.CreateUser(ctx, requestData)
 	if err != nil {
 		customErr := utils.ParseError(err)
 		c.Error(customErr)

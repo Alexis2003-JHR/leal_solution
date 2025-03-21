@@ -11,24 +11,24 @@ func InitRouter(r *gin.Engine, handler *handlers.Handler) {
 	{
 		users := v1.Group("/users")
 		{
-			users.POST("/", handler.CrearUsuario)
-			users.GET("/:user/balance", handler.CrearUsuario)
+			users.POST("/", handler.CreateUser)
+			users.GET("/:user/balance", handler.CreateUser)
 		}
 
 		transactions := v1.Group("/transactions")
 		{
-			transactions.POST("/", handler.CrearUsuario)
-			transactions.GET("/:id", handler.CrearUsuario)
+			transactions.POST("/", handler.CreateUser)
+			transactions.GET("/:id", handler.CreateUser)
 		}
 
 		campaigns := v1.Group("/campaigns")
 		{
-			campaigns.POST("/campaigns", handler.CrearUsuario)
-			campaigns.GET("/campaigns/:comerce_id", handler.CrearUsuario)
+			campaigns.POST("/campaigns", handler.CreateCampaign)
+			campaigns.GET("/campaigns/:comerce_id", handler.CreateUser)
 		}
 
-		v1.POST("/redemptions", handler.CrearUsuario)
-		v1.POST("/merchants", handler.CrearUsuario)
-		v1.POST("/branches", handler.CrearUsuario)
+		v1.POST("/redemptions", handler.CreateUser)
+		v1.POST("/business", handler.CreateBusiness)
+		v1.POST("/branches", handler.CreateUser)
 	}
 }

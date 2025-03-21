@@ -6,7 +6,7 @@ import (
 	"leal/internal/core/domain/models/request"
 )
 
-func (s *service) CrearUsuario(ctx context.Context, request request.CreateUser) error {
+func (s *service) CreateUser(ctx context.Context, request request.CreateUser) error {
 	user := db.User{
 		Name:  request.Name,
 		Email: request.Email,

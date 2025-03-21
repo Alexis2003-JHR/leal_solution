@@ -6,5 +6,7 @@ import (
 )
 
 type Service interface {
-	CrearUsuario(ctx context.Context, request request.CreateUser) error
+	CreateUser(ctx context.Context, request request.CreateUser) error
+	CreateCampaign(ctx context.Context, request request.CreateCampaign) error
+	CreateBusiness(ctx context.Context, request request.CreateBusiness) error
 }
