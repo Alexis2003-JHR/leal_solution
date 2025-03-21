@@ -9,9 +9,9 @@ function randomFloatBetween(min, max) {
 
 export let options = {
     stages: [
-        { duration: '10s', target: 100 },
-        { duration: '20s', target: 200 },
-        { duration: '10s', target: 0 }, 
+        { duration: '15s', target: 150 },
+        { duration: '30s', target: 300 },
+        { duration: '15s', target: 150 }, 
     ],
 };
 
@@ -20,7 +20,7 @@ export default function () {
         usuario: {
             numero_documento: 1007105219
         },
-        id_sucursal: randomIntBetween(8, 10),
+        id_sucursal: 10,
         valor: Number(randomFloatBetween(5000, 200000).toFixed(2))
     });
 
