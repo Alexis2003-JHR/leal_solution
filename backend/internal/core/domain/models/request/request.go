@@ -15,10 +15,17 @@ type CreateCampaign struct {
 }
 
 type CreateBusiness struct {
-	RazonSocial string `json:"razon_social"`
-	NIT         int    `json:"nit"`
-	Telefono    int    `json:"telefono"`
-	Correo      string `json:"correo"`
+	RazonSocial      string           `json:"razon_social"`
+	NIT              int              `json:"nit"`
+	Telefono         int              `json:"telefono"`
+	Correo           string           `json:"correo"`
+	ConversionFactor ConversionFactor `json:"valor_conversion"`
+}
+
+type ConversionFactor struct {
+	MinAmount           float64 `json:"valor_minimo"`
+	PointsPerCurrency   float64 `json:"puntos_por_unidad"`
+	CashbackPerCurrency float64 `json:"cashback_por_unidad"`
 }
 
 type CreateBranch struct {

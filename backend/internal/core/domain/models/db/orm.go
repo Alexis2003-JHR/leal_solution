@@ -47,8 +47,11 @@ func (Branch) BeforeCreate(tx *gorm.DB) (err error) {
 // Factor de Conversión (ConversionFactor)
 type ConversionFactor struct {
 	ID                  uint     `gorm:"primaryKey"`
-	BusinessTaxID       string   `gorm:"not null"`
+	BusinessTaxID       int      `gorm:"not null"`
 	Business            Business `gorm:"foreignKey:BusinessTaxID;references:TaxID"`
+	BranchID            *uint    `gorm:"index"`
+	Branch              *Branch  `gorm:"foreignKey:BranchID"`
+	MinAmount           float64  `gorm:"not null;default:0"`
 	PointsPerCurrency   float64  `gorm:"not null"`
 	CashbackPerCurrency float64  `gorm:"not null"`
 }

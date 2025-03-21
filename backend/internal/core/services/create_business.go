@@ -13,5 +13,23 @@ func (s *service) CreateBusiness(ctx context.Context, request request.CreateBusi
 		Phone: request.Telefono,
 		Email: request.Correo,
 	}
-	return s.repo.InsertBusiness(ctx, business)
+
+	err := s.repo.InsertBusiness(ctx, business)
+	if err != nil {
+		return err
+	}
+
+	conversionFactor := db.ConversionFactor{
+		BusinessTaxID:       request.NIT,
+		MinAmount:           request.ConversionFactor.MinAmount,
+		PointsPerCurrency:   request.ConversionFactor.PointsPerCurrency,
+		CashbackPerCurrency: request.ConversionFactor.CashbackPerCurrency,
+	}
+
+	err = s.repo.InsertConversionFactor(ctx, conversionFactor)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
