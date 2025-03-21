@@ -1,6 +1,5 @@
 import http from 'k6/http';
 import { sleep, check } from 'k6';
-import { randomIntBetween } from 'https://jslib.k6.io/k6-utils/1.2.0/index.js';
 
 
 function randomFloatBetween(min, max) {
@@ -9,9 +8,9 @@ function randomFloatBetween(min, max) {
 
 export let options = {
     stages: [
-        { duration: '15s', target: 150 },
-        { duration: '30s', target: 300 },
-        { duration: '15s', target: 150 }, 
+        { duration: '5s', target: 10 },
+        { duration: '20s', target: 20 },
+        { duration: '5s', target: 10 }, 
     ],
 };
 
@@ -21,7 +20,7 @@ export default function () {
             numero_documento: 1007105219
         },
         id_sucursal: 10,
-        valor: Number(randomFloatBetween(5000, 200000).toFixed(2))
+        valor: 5000//Number(randomFloatBetween(5000, 50000).toFixed(2))
     });
 
     let params = {

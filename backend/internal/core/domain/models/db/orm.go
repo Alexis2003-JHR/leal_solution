@@ -112,3 +112,10 @@ type Redemption struct {
 	PointsSpent        int       `gorm:"not null"`
 	CreatedAt          time.Time `gorm:"autoCreateTime"`
 }
+
+type UserBalance struct {
+	UserID    uint    `gorm:"primaryKey"`
+	Points    int     `gorm:"not null;default:0"`
+	Cashback  float64 `gorm:"not null;default:0"`
+	UpdatedAt time.Time
+}

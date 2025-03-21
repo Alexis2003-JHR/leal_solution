@@ -18,9 +18,13 @@ func (r *repository) FindConversionFactor(ctx context.Context, businessTaxID int
 	var factor db.ConversionFactor
 	err := r.db.WithContext(ctx).
 		Where("business_tax_id = ? AND (branch_id = ? OR branch_id IS NULL)", businessTaxID, branchID).
-		Order("branch_id DESC"). // Prioriza los registros con branch_id antes que los NULL
+		Order("branch_id DESC NULLS LAST, id").
 		First(&factor).Error
-	return &factor, err
+
+	if err != nil {
+		return nil, err
+	}
+	return &factor, nil
 }
 
 func (r *repository) FindActiveCampaign(ctx context.Context, branchID int, now time.Time) (*db.Campaign, error) {

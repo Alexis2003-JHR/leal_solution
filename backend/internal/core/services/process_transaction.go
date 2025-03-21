@@ -2,7 +2,6 @@ package services
 
 import (
 	"context"
-	"fmt"
 	"leal/internal/core/domain/models/db"
 	"leal/internal/core/domain/models/request"
 	"leal/internal/utils"
@@ -41,7 +40,11 @@ func (tp *TransactionService) ProcessTransaction(request request.ProcessTransact
 	}
 
 	if err := tp.repo.SaveTransaction(ctx, tx, earnings); err != nil {
-		return fmt.Errorf("error saving transaction")
+		return err
+	}
+
+	if err := tp.repo.UpdateUserBalance(ctx, request.User.DocumentNumber, earnings.PointsEarned, earnings.CashbackEarned); err != nil {
+		return err
 	}
 
 	return nil

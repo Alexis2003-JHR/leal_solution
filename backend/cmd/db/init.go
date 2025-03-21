@@ -33,6 +33,7 @@ func Init() (*gorm.DB, error) {
 		&ormModels.Earnings{},
 		&ormModels.Reward{},
 		&ormModels.Redemption{},
+		&ormModels.UserBalance{},
 	)
 
 	return db, nil
