@@ -1,11 +1,13 @@
 package handlers
 
-import "leal/internal/core/services"
+import (
+	"leal/internal/core/domain/ports"
+)
 
 type Handler struct {
-	Service services.Service
+	Service ports.Service
 }
 
-func NewHandler(service services.Service) *Handler {
+func NewHandler(service ports.Service) *Handler {
 	return &Handler{Service: service}
 }

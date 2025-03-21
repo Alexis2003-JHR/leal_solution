@@ -2,9 +2,14 @@ package services
 
 import (
 	"context"
-	"leal/internal/core/domain/models"
+	"leal/internal/core/domain/models/db"
+	"leal/internal/core/domain/models/request"
 )
 
-func (s *service) CrearUsuario(ctx context.Context, request models.RequestProof) (int, error) {
-	return 1, nil
+func (s *service) CrearUsuario(ctx context.Context, request request.CreateUser) error {
+	user := db.User{
+		Name:  request.Name,
+		Email: request.Email,
+	}
+	return s.repo.InsertUser(ctx, user)
 }

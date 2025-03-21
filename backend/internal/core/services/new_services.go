@@ -1,19 +1,13 @@
 package services
 
 import (
-	"context"
-	"leal/internal/adapters/repository"
-	"leal/internal/core/domain/models"
+	"leal/internal/core/domain/ports"
 )
 
-type Service interface {
-	CrearUsuario(ctx context.Context, request models.RequestProof) (int, error)
-}
-
 type service struct {
-	repo repository.Repository
+	repo ports.Repository
 }
 
-func NewService(repo repository.Repository) Service {
+func NewService(repo ports.Repository) ports.Service {
 	return &service{repo: repo}
 }

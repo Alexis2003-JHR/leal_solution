@@ -1,20 +1,15 @@
 package repository
 
 import (
-	"context"
-	"leal/internal/core/domain/models/db"
+	"leal/internal/core/domain/ports"
 
 	"gorm.io/gorm"
 )
-
-type Repository interface {
-	InsertLeal(ctx context.Context, leal db.Leal) error
-}
 
 type repository struct {
 	db *gorm.DB
 }
 
-func NewPostgrestRepository(db *gorm.DB) Repository {
+func NewPostgrestRepository(db *gorm.DB) ports.Repository {
 	return &repository{db: db}
 }

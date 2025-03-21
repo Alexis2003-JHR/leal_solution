@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"leal/internal/core/domain/custom_errors"
-	"leal/internal/core/domain/models"
+	"leal/internal/core/domain/models/request"
 	"leal/internal/utils"
 	"log"
 	"net/http"
@@ -12,17 +12,17 @@ import (
 
 func (h *Handler) CrearUsuario(c *gin.Context) {
 	ctx := utils.GetCtxByGin(c)
-	var requestData models.RequestProof
+	var requestData request.CreateUser
 	if err := c.ShouldBindJSON(&requestData); err != nil {
-		log.Println("Error", err)
+		log.Println("Error al parsear el cuerpo JSON", err)
 	}
 
-	result, err := h.Service.CrearUsuario(ctx, requestData)
+	err := h.Service.CrearUsuario(ctx, requestData)
 	if err != nil {
 		customErr := custom_errors.New(custom_errors.ErrInternalServerErrorType, "IT Proof", "Something unexpected has happened", http.StatusInternalServerError, err.Error())
 		c.Error(customErr)
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"message": result})
+	c.JSON(http.StatusOK, gin.H{"message": "Usuario creado correctamente"})
 }
