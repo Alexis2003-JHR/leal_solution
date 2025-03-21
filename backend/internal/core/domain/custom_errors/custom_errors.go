@@ -38,10 +38,9 @@ type AppError struct {
 	Message string `json:"message"`
 }
 
-func New(errType ErrorType, uuid string, message string, statusCode int, logMessage string) *LogError {
+func New(errType ErrorType, message string, statusCode int, logMessage string) *LogError {
 	return &LogError{
 		Type:       errType,
-		UUID:       uuid,
 		Message:    message,
 		StatusCode: statusCode,
 		LogMessage: logMessage,

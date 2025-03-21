@@ -34,5 +34,5 @@ func ErrorHandler() gin.HandlerFunc {
 }
 
 func logError(err *custom_errors.LogError) {
-	log.Printf(`{"level": "error", "uuid": "%s", "type": "%s", "message": "%s", "log_message": "%s"}`, err.UUID, err.Type, err.Message, err.LogMessage)
+	log.Printf(`{"level": "error", "type": "%s", "message": "%s", "log_message": "%s"}`, err.Type, err.Message, err.LogMessage)
 }
