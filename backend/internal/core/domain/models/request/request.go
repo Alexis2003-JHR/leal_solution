@@ -10,7 +10,7 @@ type CreateCampaign struct {
 	TaxID              int     `json:"nit_empresa"`
 	BranchID           int     `json:"id_sucursal"`
 	StartDate          string  `json:"fecha_inicio"`
-	EndDate            string  `json:"end_date"`
+	EndDate            string  `json:"fecha_fin"`
 	PointsMultiplier   float64 `json:"multiplicador_puntos"`
 	CashbackMultiplier float64 `json:"multiplicador_cashback"`
 	MinPurchaseAmount  float64 `json:"compra_minima"`
