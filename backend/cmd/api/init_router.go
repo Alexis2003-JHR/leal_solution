@@ -27,8 +27,13 @@ func InitRouter(r *gin.Engine, handler *handlers.Handler) {
 			campaigns.GET("/campaigns/:comerce_id", handler.CreateUser)
 		}
 
+		branches := v1.Group("/branches")
+		{
+			branches.POST("/", handler.CreateBranch)
+			branches.GET("/", handler.ObtainBranches)
+		}
+
 		v1.POST("/redemptions", handler.CreateUser)
 		v1.POST("/business", handler.CreateBusiness)
-		v1.POST("/branches", handler.CreateBranch)
 	}
 }

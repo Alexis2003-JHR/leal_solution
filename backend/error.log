@@ -11,3 +11,5 @@
 2025/03/20 22:55:45 {"level": "error", "type": "INTERNAL_SERVER_ERROR", "message": "Something unexpected has happened", "log_message": "internal server error: error inserting the branch"}
 2025/03/20 23:11:10 {"level": "error", "type": "DUPLICATE_KEY", "message": "The entity already exists", "log_message": "duplicate key: branch Buena Aventura - Los Andes already exists"}
 2025/03/20 23:11:13 {"level": "error", "type": "DUPLICATE_KEY", "message": "The entity already exists", "log_message": "duplicate key: branch Buena Aventura - Los Andes already exists"}
+2025/03/20 23:26:33 {"level": "error", "type": "DUPLICATE_KEY", "message": "The entity already exists", "log_message": "duplicate key: branch Buena Aventura - Los Andes already exists"}
+2025/03/20 23:55:06 {"level": "error", "type": "NOT_FOUND", "message": "Entity not found", "log_message": "error data not found: no se encontraron sucursales para el tax_id: 1234535843"}
