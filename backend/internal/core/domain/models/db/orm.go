@@ -93,11 +93,13 @@ type Earnings struct {
 
 // Recompensa (Reward)
 type Reward struct {
-	ID             uint     `gorm:"primaryKey"`
-	BusinessTaxID  string   `gorm:"not null"`
-	Business       Business `gorm:"foreignKey:BusinessTaxID;references:TaxID"`
-	PointsRequired int      `gorm:"not null"`
-	Description    string   `gorm:"not null"`
+	ID             uint      `gorm:"primaryKey"`
+	Name           string    `gorm:"type:varchar(255);not null"`
+	Description    string    `gorm:"type:text"`
+	PointsRequired int       `gorm:"not null;check:points_required > 0"`
+	BusinessTaxID  int64     `gorm:"not null;index"` // Relación con negocio
+	CreatedAt      time.Time `gorm:"autoCreateTime"`
+	UpdatedAt      time.Time `gorm:"autoUpdateTime"`
 }
 
 // Redención de puntos/cashback (Redemption)
