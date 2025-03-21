@@ -6,7 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func InitRouter(r *gin.Engine, handler *handlers.Handler) {
+func InitRouter(r *gin.Engine, handler *handlers.Handler, txHandler *handlers.TransactionHandler) {
 	v1 := r.Group("/api/v1")
 	{
 		users := v1.Group("/users")
@@ -27,7 +27,7 @@ func InitRouter(r *gin.Engine, handler *handlers.Handler) {
 			branches.GET("/", handler.ObtainBranches)
 		}
 
-		v1.POST("/transactions", handler.ProcessTransaction)
+		v1.POST("/transactions", txHandler.ProcessTransaction)
 		v1.POST("/redemptions", handler.CreateUser)
 		v1.POST("/business", handler.CreateBusiness)
 	}

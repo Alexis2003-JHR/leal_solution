@@ -34,10 +34,12 @@ func InitServer(r *gin.Engine) {
 	r.Use(middleware.ErrorHandler())
 
 	repository := repository.NewPostgrestRepository(db)
+	transactionService := services.NewTransactionService(repository, 20)
+	txHandler := handlers.NewTransactionHandler(transactionService)
 	services := services.NewService(repository)
 	handler := handlers.NewHandler(services)
 
-	InitRouter(r, handler)
+	InitRouter(r, handler, txHandler)
 
 	r.Run(fmt.Sprintf(":%d", port))
 }
