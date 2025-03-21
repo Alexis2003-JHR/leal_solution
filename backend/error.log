@@ -1,3 +1,6 @@
 2025/03/20 19:17:01 
 2025/03/20 19:21:13 
 2025/03/20 19:21:35 
+2025/03/20 20:43:07 {"level": "error", "type": "INTERNAL_SERVER_ERROR", "message": "Something unexpected has happened", "log_message": "internal server error: error inserting user"}
+2025/03/20 20:44:51 {"level": "error", "type": "INTERNAL_SERVER_ERROR", "message": "Something unexpected has happened", "log_message": "duplicate key: email heyderrojas2003@gmail.com already exists"}
+2025/03/20 20:48:25 {"level": "error", "type": "DUPLICATE_KEY", "message": "The entity already exists", "log_message": "duplicate key: email heyderrojas2003@gmail.com already exists"}

@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"leal/internal/core/domain/custom_errors"
 	"leal/internal/core/domain/models/request"
 	"leal/internal/utils"
 	"net/http"
@@ -20,7 +19,7 @@ func (h *Handler) CrearUsuario(c *gin.Context) {
 
 	err := h.Service.CrearUsuario(ctx, requestData)
 	if err != nil {
-		customErr := custom_errors.New(custom_errors.ErrInternalServerErrorType, "Something unexpected has happened", http.StatusInternalServerError, err.Error())
+		customErr := utils.ParseError(err)
 		c.Error(customErr)
 		return
 	}
