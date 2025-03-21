@@ -10,7 +10,7 @@ import (
 	"github.com/jackc/pgx/v5/pgconn"
 )
 
-func (r *repository) InsertBranch(ctx context.Context, branch db.Branch) error {
+func (r *repository) InsertBranch(ctx context.Context, branch *db.Branch) error {
 	if branch.Name == "" {
 		return custom_errors.ErrBadRequest
 	}

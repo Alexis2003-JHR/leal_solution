@@ -22,13 +22,14 @@ type CreateBusiness struct {
 	ConversionFactor ConversionFactor `json:"valor_conversion"`
 }
 
+type CreateBranch struct {
+	NITEmpresa       int              `json:"nit_empresa"`
+	NombreSucursal   string           `json:"nombre_sucursal"`
+	ConversionFactor ConversionFactor `json:"valor_conversion"`
+}
+
 type ConversionFactor struct {
 	MinAmount           float64 `json:"valor_minimo"`
 	PointsPerCurrency   float64 `json:"puntos_por_unidad"`
 	CashbackPerCurrency float64 `json:"cashback_por_unidad"`
-}
-
-type CreateBranch struct {
-	NITEmpresa     int    `json:"nit_empresa"`
-	NombreSucursal string `json:"nombre_sucursal"`
 }
