@@ -3,6 +3,7 @@ package ports
 import (
 	"context"
 	"leal/internal/core/domain/models/db"
+	"time"
 )
 
 type Repository interface {
@@ -14,4 +15,7 @@ type Repository interface {
 	GetBranches(ctx context.Context, taxID int) ([]db.Branch, error)
 	GetCampaigns(ctx context.Context, taxID int) ([]db.Campaign, error)
 	FindBranch(ctx context.Context, branchID int) (*db.Branch, error)
+	FindConversionFactor(ctx context.Context, businessTaxID int, branchID int) (*db.ConversionFactor, error)
+	FindActiveCampaign(ctx context.Context, branchID int, now time.Time) (*db.Campaign, error)
+	SaveTransaction(ctx context.Context, tx *db.Transaction, earnings *db.Earnings) error
 }

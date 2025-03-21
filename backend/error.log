@@ -30,3 +30,8 @@
 2025/03/21 11:18:26 {"level": "error", "type": "BAD_REQUEST", "message": "Invalid request", "log_message": "the request is invalid or malformed"}
 2025/03/21 11:18:50 {"level": "error", "type": "BAD_REQUEST", "message": "Invalid request", "log_message": "the request is invalid or malformed"}
 2025/03/21 11:23:45 {"level": "error", "type": "BAD_REQUEST", "message": "Invalid request", "log_message": "the request is invalid or malformed"}
+2025/03/21 11:46:47 {"level": "error", "type": "INTERNAL_SERVER_ERROR", "message": "Something unexpected has happened", "log_message": "error saving transaction"}
+2025/03/21 11:58:04 {"level": "error", "type": "INTERNAL_SERVER_ERROR", "message": "Something unexpected has happened", "log_message": "ERROR: argument of AND must be type boolean, not type bigint (SQLSTATE 42804)"}
+2025/03/21 11:59:22 {"level": "error", "type": "INTERNAL_SERVER_ERROR", "message": "Something unexpected has happened", "log_message": "record not found"}
+2025/03/21 12:01:29 {"level": "error", "type": "INTERNAL_SERVER_ERROR", "message": "Something unexpected has happened", "log_message": "record not found"}
+2025/03/21 12:02:22 {"level": "error", "type": "INTERNAL_SERVER_ERROR", "message": "Something unexpected has happened", "log_message": "record not found"}
