@@ -14,7 +14,7 @@ func (r *repository) InsertRedemption(ctx context.Context, redemption db.Redempt
 	if err := r.db.WithContext(ctx).Create(&redemption).Error; err != nil {
 		var pgErr *pgconn.PgError
 		if errors.As(err, &pgErr) && pgErr.Code == "23503" {
-			return fmt.Errorf("%w: el business_tax_id %s no existe", custom_errors.ErrSavingError, redemption.BusinessTaxID)
+			return fmt.Errorf("%w: el business_tax_id %d no existe", custom_errors.ErrSavingError, redemption.BusinessTaxID)
 		}
 		if errors.As(err, &pgErr) && pgErr.Code == "23505" {
 			return fmt.Errorf("%w: redemption %d already exists", custom_errors.ErrDuplicatedKey, redemption.UserDocumentNumber)
