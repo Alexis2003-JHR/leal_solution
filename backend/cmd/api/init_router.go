@@ -9,9 +9,26 @@ import (
 func InitRouter(r *gin.Engine, handler *handlers.Handler) {
 	v1 := r.Group("/api/v1")
 	{
-		grupos := v1.Group("/campaña")
+		users := v1.Group("/users")
 		{
-			grupos.GET("/", handler.AgregarLeal)
+			users.POST("/", handler.AgregarLeal)
+			users.GET("/:user/balance", handler.AgregarLeal)
 		}
+
+		transactions := v1.Group("/transactions")
+		{
+			transactions.POST("/", handler.AgregarLeal)
+			transactions.GET("/:id", handler.AgregarLeal)
+		}
+
+		campaigns := v1.Group("/campaigns")
+		{
+			campaigns.POST("/campaigns", handler.AgregarLeal)
+			campaigns.GET("/campaigns/:comerce_id", handler.AgregarLeal)
+		}
+
+		v1.POST("/redemptions", handler.AgregarLeal)
+		v1.POST("/merchants", handler.AgregarLeal)
+		v1.POST("/branches", handler.AgregarLeal)
 	}
 }
