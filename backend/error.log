@@ -21,3 +21,4 @@
 2025/03/21 07:44:38 {"level": "error", "type": "SAVE_ERROR", "message": "error saving the entity: el business_tax_id 114433225 no existe", "log_message": "error saving the entity: el business_tax_id 114433225 no existe"}
 2025/03/21 09:17:11 {"level": "error", "type": "DUPLICATE_KEY", "message": "The entity already exists", "log_message": "duplicate key: business with the same name, tax ID, or email already exists"}
 2025/03/21 09:33:14 {"level": "error", "type": "DUPLICATE_KEY", "message": "The entity already exists", "log_message": "duplicate key: branch Barranca La Vieja already exists"}
+2025/03/21 10:04:01 {"level": "error", "type": "DUPLICATE_KEY", "message": "The entity already exists", "log_message": "duplicate key: ya existe una campaña en este rango de fechas para la sucursal 8 del negocio 1144332255"}

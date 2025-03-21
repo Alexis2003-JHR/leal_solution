@@ -24,5 +24,5 @@ func (h *Handler) CreateCampaign(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"message": "Usuario creado correctamente"})
+	c.JSON(http.StatusOK, gin.H{"message": "Campaña ha sido creada correctamente"})
 }

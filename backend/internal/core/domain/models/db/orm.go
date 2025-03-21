@@ -71,6 +71,8 @@ type Transaction struct {
 // Campaña (Campaign)
 type Campaign struct {
 	ID                 uint      `gorm:"primaryKey"`
+	BusinessTaxID      int       `gorm:"not null"`
+	Business           Business  `gorm:"foreignKey:BusinessTaxID;references:TaxID"`
 	BranchID           uint      `gorm:"not null"`
 	Branch             Branch    `gorm:"foreignKey:BranchID"`
 	StartDate          time.Time `gorm:"not null"`

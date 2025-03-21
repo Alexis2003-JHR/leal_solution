@@ -6,6 +6,7 @@ type CreateUser struct {
 }
 
 type CreateCampaign struct {
+	TaxID              int     `json:"nit_empresa"`
 	BranchID           int     `json:"id_sucursal"`
 	StartDate          string  `json:"fecha_inicio"`
 	EndDate            string  `json:"end_date"`
