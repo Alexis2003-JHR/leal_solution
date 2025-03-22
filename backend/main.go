@@ -24,7 +24,7 @@ func init() {
 // @description A Tag service API in Go using Gin Framework
 
 // @host localhost:6060
-// @BasePath /api
+// @BasePath /api/v1
 func main() {
 	r := gin.Default()
 
