@@ -7,7 +7,7 @@
         "version": "1.0"
     },
     "host": "localhost:6060",
-    "basePath": "/api",
+    "basePath": "/api/v1",
     "paths": {
         "/branches": {
             "get": {
