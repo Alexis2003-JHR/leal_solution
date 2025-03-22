@@ -8,6 +8,14 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// RedeemPoints		godoc
+// @Summary			Redimir puntos
+// @Description		Permitir a un usuario redimir puntos por un premio específico.
+// @Param			redeem body request.RedeemPoints true "Datos para redimir puntos"
+// @Produce			application/json
+// @Tags			Rewards
+// @Success			200
+// @Router			/redemptions/points [post]
 func (h *Handler) RedeemPoints(c *gin.Context) {
 	ctx := utils.GetCtxByGin(c)
 	var requestData request.RedeemPoints

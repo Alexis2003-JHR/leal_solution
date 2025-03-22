@@ -18,6 +18,74 @@ definitions:
       valor_conversion:
         $ref: '#/definitions/request.ConversionFactor'
     type: object
+  request.CreateBusiness:
+    properties:
+      correo:
+        type: string
+      nit:
+        type: integer
+      razon_social:
+        type: string
+      telefono:
+        type: integer
+      valor_conversion:
+        $ref: '#/definitions/request.ConversionFactor'
+    type: object
+  request.CreateCampaign:
+    properties:
+      compra_minima:
+        type: number
+      fecha_fin:
+        type: string
+      fecha_inicio:
+        type: string
+      id_sucursal:
+        type: integer
+      multiplicador_cashback:
+        type: number
+      multiplicador_puntos:
+        type: number
+      nit_empresa:
+        type: integer
+    type: object
+  request.CreateReward:
+    properties:
+      descripcion:
+        type: string
+      nit_empresa:
+        type: integer
+      nombre:
+        type: string
+      puntos_requeridos:
+        type: integer
+    type: object
+  request.CreateUser:
+    properties:
+      correo:
+        type: string
+      nombre:
+        type: string
+      numero_documento:
+        type: integer
+    type: object
+  request.ProcessTransaction:
+    properties:
+      id_sucursal:
+        type: integer
+      usuario:
+        $ref: '#/definitions/request.CreateUser'
+      valor:
+        type: number
+    type: object
+  request.RedeemPoints:
+    properties:
+      id_premio:
+        type: integer
+      nit_empresa:
+        type: integer
+      usuario:
+        $ref: '#/definitions/request.CreateUser'
+    type: object
 host: localhost:6060
 info:
   contact: {}
@@ -26,6 +94,22 @@ info:
   version: "1.0"
 paths:
   /branches:
+    get:
+      description: Recuperar las sucursales asociadas a una empresa específica.
+      parameters:
+      - description: ID tributario de la empresa
+        in: query
+        name: tax_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Obtener sucursales de comercio
+      tags:
+      - Branches
     post:
       consumes:
       - application/json
@@ -43,7 +127,137 @@ paths:
       responses:
         "200":
           description: OK
-      summary: Create a new branch
+      summary: Crear nueva sucursal
       tags:
       - Branches
+  /business:
+    post:
+      consumes:
+      - application/json
+      description: Endpoint to register a new business. Requires business details
+        in the request body.
+      parameters:
+      - description: Business data
+        in: body
+        name: business
+        required: true
+        schema:
+          $ref: '#/definitions/request.CreateBusiness'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Crear nuevo comercio
+      tags:
+      - Businesses
+  /campaigns:
+    get:
+      description: Recuperar las campañas asociadas a una empresa específica.
+      parameters:
+      - description: ID tributario de la empresa
+        in: query
+        name: tax_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Obtener campañas de comercio
+      tags:
+      - Campaigns
+    post:
+      consumes:
+      - application/json
+      description: Endpoint to create a new marketing campaign for a business. Requires
+        campaign details in the request body.
+      parameters:
+      - description: Campaign data
+        in: body
+        name: campaign
+        required: true
+        schema:
+          $ref: '#/definitions/request.CreateCampaign'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Crear nueva campaña
+      tags:
+      - Campaigns
+  /redemptions/points:
+    post:
+      description: Permitir a un usuario redimir puntos por un premio específico.
+      parameters:
+      - description: Datos para redimir puntos
+        in: body
+        name: redeem
+        required: true
+        schema:
+          $ref: '#/definitions/request.RedeemPoints'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Redimir puntos
+      tags:
+      - Rewards
+  /rewards:
+    post:
+      description: Guardar los datos de un nuevo premio en la base de datos.
+      parameters:
+      - description: Datos del premio
+        in: body
+        name: reward
+        required: true
+        schema:
+          $ref: '#/definitions/request.CreateReward'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Crear nuevo premio
+      tags:
+      - Rewards
+  /transactions:
+    post:
+      description: Procesar y encolar una nueva transacción.
+      parameters:
+      - description: Datos de la transacción
+        in: body
+        name: transaction
+        required: true
+        schema:
+          $ref: '#/definitions/request.ProcessTransaction'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Procesar transacción
+      tags:
+      - Transactions
+  /users:
+    post:
+      description: Guardar los datos de un nuevo usuario en la base de datos.
+      parameters:
+      - description: Datos del usuario
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/request.CreateUser'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Crear nuevo usuario
+      tags:
+      - Users
 swagger: "2.0"

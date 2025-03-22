@@ -8,6 +8,15 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// CreateBusiness godoc
+// @Summary      Crear nuevo comercio
+// @Description  Endpoint to register a new business. Requires business details in the request body.
+// @Tags         Businesses
+// @Accept       json
+// @Produce      json
+// @Param        business body request.CreateBusiness true "Business data"
+// @Success      200
+// @Router       /business [post]
 func (h *Handler) CreateBusiness(c *gin.Context) {
 	ctx := utils.GetCtxByGin(c)
 	var requestData request.CreateBusiness

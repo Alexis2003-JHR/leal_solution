@@ -19,6 +19,14 @@ func NewTransactionHandler(transactionService *services.TransactionService) *Tra
 	}
 }
 
+// ProcessTransaction	godoc
+// @Summary			Procesar transacción
+// @Description		Procesar y encolar una nueva transacción.
+// @Param			transaction body request.ProcessTransaction true "Datos de la transacción"
+// @Produce			application/json
+// @Tags			Transactions
+// @Success			200
+// @Router			/transactions [post]
 func (th *TransactionHandler) ProcessTransaction(c *gin.Context) {
 	var tx request.ProcessTransaction
 	if err := c.ShouldBindJSON(&tx); err != nil {

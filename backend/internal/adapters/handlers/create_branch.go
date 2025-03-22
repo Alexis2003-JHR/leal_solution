@@ -9,7 +9,7 @@ import (
 )
 
 // CreateBranch godoc
-// @Summary      Create a new branch
+// @Summary      Crear nueva sucursal
 // @Description  Endpoint to create a new branch for a business. Requires branch details in the request body.
 // @Tags         Branches
 // @Accept       json

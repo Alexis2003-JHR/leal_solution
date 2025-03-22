@@ -8,6 +8,14 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// CreateReward		godoc
+// @Summary			Crear nuevo premio
+// @Description		Guardar los datos de un nuevo premio en la base de datos.
+// @Param			reward body request.CreateReward true "Datos del premio"
+// @Produce			application/json
+// @Tags			Rewards
+// @Success			200
+// @Router			/rewards [post]
 func (h *Handler) CreateReward(c *gin.Context) {
 	ctx := utils.GetCtxByGin(c)
 	var requestData request.CreateReward

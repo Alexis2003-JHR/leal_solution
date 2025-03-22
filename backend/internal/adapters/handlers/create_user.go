@@ -8,6 +8,14 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// CreateUser		godoc
+// @Summary			Crear nuevo usuario
+// @Description		Guardar los datos de un nuevo usuario en la base de datos.
+// @Param			user body request.CreateUser true "Datos del usuario"
+// @Produce			application/json
+// @Tags			Users
+// @Success			200
+// @Router			/users [post]
 func (h *Handler) CreateUser(c *gin.Context) {
 	ctx := utils.GetCtxByGin(c)
 	var requestData request.CreateUser
