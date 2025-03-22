@@ -1,0 +1,74 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "A Tag service API in Go using Gin Framework",
+        "title": "Tag Service API",
+        "contact": {},
+        "version": "1.0"
+    },
+    "host": "localhost:6060",
+    "basePath": "/api",
+    "paths": {
+        "/branches": {
+            "post": {
+                "description": "Endpoint to create a new branch for a business. Requires branch details in the request body.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Branches"
+                ],
+                "summary": "Create a new branch",
+                "parameters": [
+                    {
+                        "description": "Branch data",
+                        "name": "branch",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.CreateBranch"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "request.ConversionFactor": {
+            "type": "object",
+            "properties": {
+                "cashback_por_unidad": {
+                    "type": "number"
+                },
+                "puntos_por_unidad": {
+                    "type": "number"
+                },
+                "valor_minimo": {
+                    "type": "number"
+                }
+            }
+        },
+        "request.CreateBranch": {
+            "type": "object",
+            "properties": {
+                "nit_empresa": {
+                    "type": "integer"
+                },
+                "nombre_sucursal": {
+                    "type": "string"
+                },
+                "valor_conversion": {
+                    "$ref": "#/definitions/request.ConversionFactor"
+                }
+            }
+        }
+    }
+}

@@ -4,9 +4,12 @@ import (
 	"leal/internal/adapters/handlers"
 
 	"github.com/gin-gonic/gin"
+	swaggerFiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 func InitRouter(r *gin.Engine, handler *handlers.Handler, txHandler *handlers.TransactionHandler) {
+	r.GET("/docs/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	v1 := r.Group("/api/v1")
 	{
 		users := v1.Group("/users")

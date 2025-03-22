@@ -8,6 +8,15 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// CreateBranch godoc
+// @Summary      Create a new branch
+// @Description  Endpoint to create a new branch for a business. Requires branch details in the request body.
+// @Tags         Branches
+// @Accept       json
+// @Produce      json
+// @Param        branch body request.CreateBranch true "Branch data"
+// @Success      200
+// @Router       /branches [post]
 func (h *Handler) CreateBranch(c *gin.Context) {
 	ctx := utils.GetCtxByGin(c)
 	var requestData request.CreateBranch

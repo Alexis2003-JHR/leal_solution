@@ -2,6 +2,7 @@ package main
 
 import (
 	"leal/cmd/api"
+	_ "leal/docs"
 	"log"
 	"os"
 
@@ -18,6 +19,12 @@ func init() {
 	}
 }
 
+// @title Tag Service API
+// @version 1.0
+// @description A Tag service API in Go using Gin Framework
+
+// @host localhost:6060
+// @BasePath /api
 func main() {
 	r := gin.Default()
 
