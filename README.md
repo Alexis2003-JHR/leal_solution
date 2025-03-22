@@ -28,6 +28,10 @@ Una vez que los servicios estén levantados, el API estará accesible en la sigu
 
 - **API Base URL:** [http://localhost:6060/api/v1](http://localhost:6060/api/v1)
 
+
+## Migraciones
+Las migraciones se realizaron mediante GORM. La librería gestiona automáticamente la migración de la base de datos en base a las estructuras ORM definidas en el código.
+
 ## Notas y Documentación
 
 - **Swagger:**
