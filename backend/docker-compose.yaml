@@ -1,0 +1,37 @@
+services:
+  leal_postgres:
+    image: postgres:latest
+    env_file:
+      - .env
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "leal_user"]
+      interval: 5s
+      timeout: 10s
+      retries: 5
+
+  leal:
+    build: .
+    ports:
+      - "6060:6060"
+    env_file:
+      - .env
+    environment:
+      - DB_HOST=leal_postgres
+      - DB_PORT=5432
+      - DB_USER
+      - DB_PASSWORD
+      - DB_NAME
+    depends_on:
+      leal_postgres:
+        condition: service_healthy
+
+volumes:
+  db-data:
