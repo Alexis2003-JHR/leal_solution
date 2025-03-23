@@ -20,9 +20,15 @@ func (s *service) CreateCampaign(ctx context.Context, request request.CreateCamp
 		return fmt.Errorf("%w: invalid date format: %w", custom_errors.ErrBadRequest, err)
 	}
 
+	var branchID *uint
+	if request.BranchID > 0 {
+		tempBranchID := uint(request.BranchID)
+		branchID = &tempBranchID
+	}
+
 	campaignDB := db.Campaign{
 		BusinessTaxID:      request.TaxID,
-		BranchID:           uint(request.BranchID),
+		BranchID:           branchID,
 		StartDate:          parsedStartDate,
 		EndDate:            parsedEndDate,
 		PointsMultiplier:   request.PointsMultiplier,
