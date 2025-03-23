@@ -20,7 +20,7 @@ type Repository interface {
 	GetReward(ctx context.Context, rewardID int) (db.Reward, error)
 	FindBranch(ctx context.Context, branchID int) (*db.Branch, error)
 	FindConversionFactor(ctx context.Context, businessTaxID int, branchID int) (*db.ConversionFactor, error)
-	FindActiveCampaign(ctx context.Context, branchID int, now time.Time) (*db.Campaign, error)
+	FindActiveCampaign(ctx context.Context, businessTaxID, branchID int, now time.Time) (*db.Campaign, error)
 	SaveTransaction(ctx context.Context, tx *db.Transaction, earnings *db.Earnings) error
 	UpdateUserRedeemPoints(ctx context.Context, userID int, points int) error
 	UpdateUserBalance(ctx context.Context, userID int, points int, cashback float64) error

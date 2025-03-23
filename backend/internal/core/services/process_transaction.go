@@ -12,18 +12,13 @@ import (
 func (tp *TransactionService) ProcessTransaction(request request.ProcessTransaction) error {
 	ctx := context.Background()
 
-	branch, err := tp.repo.FindBranch(ctx, request.BranchID)
-	if err != nil {
-		return err
-	}
-
-	factor, err := tp.repo.FindConversionFactor(ctx, branch.BusinessTaxID, request.BranchID)
+	factor, err := tp.repo.FindConversionFactor(ctx, request.BusinessTaxID, request.BranchID)
 	if err != nil {
 		return err
 	}
 
 	now := time.Now()
-	campaign, _ := tp.repo.FindActiveCampaign(ctx, request.BranchID, now)
+	campaign, _ := tp.repo.FindActiveCampaign(ctx, request.BusinessTaxID, request.BranchID, now)
 	hasCampaign := campaign != nil
 
 	points, cashback := tp.calculateEarnings(request.Valor, factor, campaign, hasCampaign)

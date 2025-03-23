@@ -37,18 +37,18 @@ func (m *MockRepository) EXPECT() *MockRepositoryMockRecorder {
 }
 
 // FindActiveCampaign mocks base method.
-func (m *MockRepository) FindActiveCampaign(ctx context.Context, branchID int, now time.Time) (*db.Campaign, error) {
+func (m *MockRepository) FindActiveCampaign(ctx context.Context, businessTaxID, branchID int, now time.Time) (*db.Campaign, error) {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "FindActiveCampaign", ctx, branchID, now)
+	ret := m.ctrl.Call(m, "FindActiveCampaign", ctx, businessTaxID, branchID, now)
 	ret0, _ := ret[0].(*db.Campaign)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
 
 // FindActiveCampaign indicates an expected call of FindActiveCampaign.
-func (mr *MockRepositoryMockRecorder) FindActiveCampaign(ctx, branchID, now interface{}) *gomock.Call {
+func (mr *MockRepositoryMockRecorder) FindActiveCampaign(ctx, businessTaxID, branchID, now interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "FindActiveCampaign", reflect.TypeOf((*MockRepository)(nil).FindActiveCampaign), ctx, branchID, now)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "FindActiveCampaign", reflect.TypeOf((*MockRepository)(nil).FindActiveCampaign), ctx, businessTaxID, branchID, now)
 }
 
 // FindBranch mocks base method.

@@ -387,6 +387,9 @@ const docTemplate = `{
                 "id_sucursal": {
                     "type": "integer"
                 },
+                "nit_empresa": {
+                    "type": "integer"
+                },
                 "usuario": {
                     "$ref": "#/definitions/request.CreateUser"
                 },

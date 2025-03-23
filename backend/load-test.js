@@ -19,8 +19,9 @@ export default function () {
         usuario: {
             numero_documento: 1007105219
         },
-        id_sucursal: 10,
-        valor: 5000
+        nit_empresa: 11223344,
+        id_sucursal: 1,
+        valor: 30000
     });
 
     let params = {

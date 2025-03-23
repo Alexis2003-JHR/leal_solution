@@ -37,9 +37,10 @@ type ConversionFactor struct {
 }
 
 type ProcessTransaction struct {
-	User     CreateUser `json:"usuario"`
-	BranchID int        `json:"id_sucursal"`
-	Valor    float64    `json:"valor"`
+	User          CreateUser `json:"usuario"`
+	BusinessTaxID int        `json:"nit_empresa"`
+	BranchID      int        `json:"id_sucursal"`
+	Valor         float64    `json:"valor"`
 }
 
 type CreateReward struct {
