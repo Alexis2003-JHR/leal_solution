@@ -160,6 +160,10 @@ paths:
         name: tax_id
         required: true
         type: integer
+      - description: ID sucursal
+        in: query
+        name: branch_id
+        type: integer
       produces:
       - application/json
       responses:

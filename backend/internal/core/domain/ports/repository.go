@@ -15,7 +15,7 @@ type Repository interface {
 	InsertReward(ctx context.Context, reward *db.Reward) error
 	InsertUser(ctx context.Context, user db.User) error
 	GetBranches(ctx context.Context, taxID int) ([]db.Branch, error)
-	GetCampaigns(ctx context.Context, taxID int) ([]db.Campaign, error)
+	GetCampaigns(ctx context.Context, taxID int, branchID *int) ([]db.Campaign, error)
 	GetUserBalance(ctx context.Context, userID int) (db.UserBalance, error)
 	GetReward(ctx context.Context, rewardID int) (db.Reward, error)
 	FindBranch(ctx context.Context, branchID int) (*db.Branch, error)

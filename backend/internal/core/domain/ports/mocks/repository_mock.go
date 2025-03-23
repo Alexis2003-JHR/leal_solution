@@ -97,18 +97,18 @@ func (mr *MockRepositoryMockRecorder) GetBranches(ctx, taxID interface{}) *gomoc
 }
 
 // GetCampaigns mocks base method.
-func (m *MockRepository) GetCampaigns(ctx context.Context, taxID int) ([]db.Campaign, error) {
+func (m *MockRepository) GetCampaigns(ctx context.Context, taxID int, branchID *int) ([]db.Campaign, error) {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "GetCampaigns", ctx, taxID)
+	ret := m.ctrl.Call(m, "GetCampaigns", ctx, taxID, branchID)
 	ret0, _ := ret[0].([]db.Campaign)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
 
 // GetCampaigns indicates an expected call of GetCampaigns.
-func (mr *MockRepositoryMockRecorder) GetCampaigns(ctx, taxID interface{}) *gomock.Call {
+func (mr *MockRepositoryMockRecorder) GetCampaigns(ctx, taxID, branchID interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetCampaigns", reflect.TypeOf((*MockRepository)(nil).GetCampaigns), ctx, taxID)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetCampaigns", reflect.TypeOf((*MockRepository)(nil).GetCampaigns), ctx, taxID, branchID)
 }
 
 // GetReward mocks base method.

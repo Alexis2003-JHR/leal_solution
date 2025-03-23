@@ -118,6 +118,12 @@ const docTemplate = `{
                         "name": "tax_id",
                         "in": "query",
                         "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "ID sucursal",
+                        "name": "branch_id",
+                        "in": "query"
                     }
                 ],
                 "responses": {

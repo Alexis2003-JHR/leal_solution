@@ -209,10 +209,14 @@ func TestObtainCampaign(t *testing.T) {
 	service := services.NewService(repoMock)
 
 	taxID := 123
+	var branchIDUint uint = 10
+	branchIDInt := int(branchIDUint)
+
 	campaignsDB := []db.Campaign{
 		{
 			ID:                 1,
 			BusinessTaxID:      taxID,
+			BranchID:           &branchIDUint, // Pasamos la referencia como *uint
 			StartDate:          time.Date(2025, 3, 1, 0, 0, 0, 0, time.UTC),
 			EndDate:            time.Date(2025, 3, 31, 23, 59, 59, 0, time.UTC),
 			PointsMultiplier:   1.5,
@@ -221,12 +225,21 @@ func TestObtainCampaign(t *testing.T) {
 		},
 	}
 
-	repoMock.EXPECT().GetCampaigns(gomock.Any(), taxID).Return(campaignsDB, nil)
-	campaigns, err := service.ObtainCampaign(context.Background(), taxID)
+	repoMock.EXPECT().GetCampaigns(gomock.Any(), taxID, gomock.Any()).Return(campaignsDB, nil)
+
+	campaigns, err := service.ObtainCampaign(context.Background(), taxID, &branchIDInt)
 
 	assert.NoError(t, err)
 	assert.Len(t, campaigns, len(campaignsDB))
-	assert.Equal(t, campaignsDB[0].BusinessTaxID, campaigns[0].BranchID)
+
+	assert.Equal(t, campaignsDB[0].ID, campaigns[0].ID)
+
+	if campaignsDB[0].BranchID != nil {
+		assert.NotNil(t, campaigns[0].BranchID)
+	} else {
+		assert.Nil(t, campaigns[0].BranchID)
+	}
+
 	assert.Equal(t, campaignsDB[0].StartDate.Format("2006-01-02"), campaigns[0].StartDate)
 	assert.Equal(t, campaignsDB[0].EndDate.Format("2006-01-02"), campaigns[0].EndDate)
 	assert.Equal(t, campaignsDB[0].PointsMultiplier, campaigns[0].PointsMultiplier)

@@ -7,10 +7,15 @@ import (
 	"leal/internal/core/domain/models/db"
 )
 
-func (r *repository) GetCampaigns(ctx context.Context, taxID int) ([]db.Campaign, error) {
+func (r *repository) GetCampaigns(ctx context.Context, taxID int, branchID *int) ([]db.Campaign, error) {
 	var campaigns []db.Campaign
 
-	result := r.db.Where("business_tax_id = ?", taxID).Find(&campaigns)
+	query := r.db.Where("business_tax_id = ?", taxID)
+	if branchID != nil {
+		query = query.Where("branch_id = ?", *branchID)
+	}
+
+	result := query.Find(&campaigns)
 	if result.Error != nil {
 		return nil, fmt.Errorf("%w: error al consultar campañas: %w", custom_errors.ErrInternalServerError, result.Error)
 	}
